@@ -5,6 +5,6 @@ contract ExampleBoolean{
     bool public myBool;
 
     function setMyBool(bool _myBool) public{
-        myBool = _myBool;
+        myBool = !_myBool;
     }
 }
