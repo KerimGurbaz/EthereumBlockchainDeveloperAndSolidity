@@ -4,12 +4,14 @@ pragma solidity 0.8.15;
 
 
 contract Wallet {
+
+    PaymentReceived public payment;
+
     address sender ;
     uint valueSent;
 
     function payContract() public payable{
-        sender = msg.sender;
-        valueSent = msg.value;
+     payment = new PaymentReceived(msg.sender, msg.value);
     }
 }
 
