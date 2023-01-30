@@ -23,4 +23,14 @@ contract PaymentReceived{
         from = _from;
         amount = _amount;
     }
+    
+    
+    PaymentReceivedStruct public payment;
+
+    function payContract() payable public{
+        // payment = PaymentReceivedStruct(msg.sender, msg.value);
+
+        payment.from = msg.sender;
+        payment.amount = msg.value;
+    }
 }
