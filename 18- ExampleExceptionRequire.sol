@@ -7,6 +7,8 @@ contract ExampleExceptionRequire{
     mapping(address => uint) public balanceReceived;
 
     function receiveMoney() public payable {
+    
+        assert(msg.value == uint8(msg.value));
         balanceReceived[msg.sender] += uint8(msg.value) ; 
     }
 
