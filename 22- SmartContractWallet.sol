@@ -1,10 +1,16 @@
 //SPDX-License-Identifier:MIT
 
-pragma solidity 0.8.15; 
+pragma solidity 0.8.16; 
+
+contract Consumer{
+    function getBalance() public view returns(uint) {
+        return address(this).balance;
+    }
+}
 
 contract SmartContractWallet{
 
-    address payable owner;
+    address  payable public owner;
 
     mapping(address => uint) public allowance;
     mapping(address => bool) public isAllowedToSend;
@@ -71,6 +77,6 @@ contract SmartContractWallet{
         return returnData;
     }
 
-    receive() external payable{}
+    receive() external payable {}
 
 }
