@@ -4,6 +4,7 @@ pragma solidity 0.8.16;
 
 contract EventExample{
     mapping(address => uint) public tokenBalance;
+    event TokensSent(address _from, address _to, uint _amount);
 
     constructor(){
         tokenBalance[msg.sender] = 100;
@@ -14,6 +15,9 @@ contract EventExample{
         require(tokenBalance[msg.sender] >= _amount, "not enough tokens");
         tokenBalance[msg.sender] -= _amount;
         tokenBalance[_to] += _amount;
+        
+         emit TokensSent(msg.sender, _to, _amount);
+
 
         return true;
     }
