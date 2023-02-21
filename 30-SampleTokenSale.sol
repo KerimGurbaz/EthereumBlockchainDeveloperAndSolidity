@@ -19,5 +19,14 @@ contract TokenSale {
         tokenOwner = msg.sender;
         token = ERC20(_token);
     }
+    
+    
+    function purcaseACoffe() public payable{
+        require(msg.value >= tokenPriceInWei, "Not enouhg money sent");
+        uint tokenToTransfer =msg.value / tokenPriceInWei;
+        uint remaninder = msg.value- tokenToTransfer * tokenPriceInWei;
+        token.transferFrom(tokenOwner, msg.sender, tokenToTransfer * 10 ** token.decimals());
+        payable(msg.sender).transfer(remaninder); 
+    }
 
 }
