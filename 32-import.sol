@@ -1,1 +1,2 @@
-import "./Foldername.sol";
+import "./folderName.sol";
+import "../otherFolder/folderName.sol"
